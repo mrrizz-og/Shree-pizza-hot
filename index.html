@@ -3,50 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A1 Pizza | Hot & Fresh Delivery</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <title>A1 Pizza - Hot & Fresh Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #d90429;
+            --primary-yellow: #ffb703;
+            --dark-bg: #1a1a1a;
+            --light-text: #ffffff;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f8f9fa; color: #333; overflow-x: hidden; }
+
+        /* Navigation */
+        nav {
+            background: var(--dark-bg);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { color: var(--primary-yellow); font-weight: 800; font-size: 1.5rem; }
+        .logo span { color: var(--primary-red); }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+
+        .promo-badge {
+            background: var(--primary-red);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Menu Section */
+        .container { max-width: 1200px; margin: 40px auto; padding: 20px; }
+        .menu-title { text-align: center; margin-bottom: 40px; font-size: 2.5rem; }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pizza-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+        }
+
+        .pizza-card:hover { transform: translateY(-10px); }
+
+        .pizza-info { padding: 20px; }
+        .price-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin: 10px 0; 
+            font-size: 0.9rem;
+            background: #f1f1f1;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .order-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        /* Footer/Location */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-info { margin-top: 20px; color: var(--primary-yellow); }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
+
+    <nav>
         <div class="logo">A1 <span>PIZZA</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="cart-icon" onclick="toggleCart()">
-            🛒 <span id="cart-count">0</span>
-        </div>
+        <div style="color:white; font-size: 0.9rem;">📍 Jalandhar</div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Buy 1 Get 1 <span class="highlight">FREE</span></h1>
-            <p>On Medium & Large Pizzas Every Day!</p>
-            <a href="#menu" class="btn">Order Now</a>
-        </div>
+    <section class="hero">
+        <div class="promo-badge">OFFER: BUY 1 GET 1 FREE</div>
+        <h1>Freshly Baked Happiness</h1>
+        <p>Available on Medium & Large Pizzas Every Day!</p>
     </section>
 
-    <section id="menu" class="menu-section">
-        <h2>Our Delicious Menu</h2>
-        <div class="menu-grid" id="menu-container">
+    <div class="container">
+        <h2 class="menu-title">Our Best Sellers</h2>
+        
+        <div class="menu-grid">
+            <div class="pizza-card">
+                <div class="pizza-info">
+                    <h3>Simply Veg (Single Topping)</h3>
+                    <p>Onion, Capsicum, Corn or Tomato</p>
+                    <div class="price-row">
+                        <span>Reg: ₹70</span>
+                        <span>Med: ₹150</span>
+                        <span>Lrg: ₹250</span>
+                    </div>
+                    <a href="https://wa.me/917001475108?text=I'd like to order a Simply Veg Pizza" class="order-btn">
+                        Order on WhatsApp
+                    </a>
+                </div>
             </div>
-    </section>
 
-    <div id="cart-sidebar" class="cart-sidebar">
-        <h3>Your Order</h3>
-        <div id="cart-items"></div>
-        <div class="cart-total">Total: ₹<span id="total-price">0</span></div>
-        <button class="whatsapp-btn" onclick="sendWhatsApp()">Order via WhatsApp</button>
-        <button class="close-btn" onclick="toggleCart()">Close</button>
+            <div class="pizza-card">
+                <div class="pizza-info">
+                    <h3>Paneer Special</h3>
+                    <p>Fresh Paneer with Golden Corn</p>
+                    <div class="price-row">
+                        <span>Reg: ₹160</span>
+                        <span>Med: ₹310</span>
+                        <span>Lrg: ₹460</span>
+                    </div>
+                    <a href="https://wa.me/917001475108?text=I'd like to order a Paneer Special Pizza" class="order-btn">
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="pizza-card">
+                <div class="pizza-info">
+                    <h3>A1 Special Pizza</h3>
+                    <p>The Ultimate Pizza with all toppings</p>
+                    <div class="price-row">
+                        <span>Reg: ₹210</span>
+                        <span>Med: ₹380</span>
+                        <span>Lrg: ₹550</span>
+                    </div>
+                    <a href="https://wa.me/917001475108?text=I'd like to order an A1 Special Pizza" class="order-btn">
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <footer id="contact">
-        <p>Location: Shop No. 25-A, Main Market, Distt. Jalandhar (Near PNB Bank)</p>
-        <p>Call Us: 70014-75108</p>
+    <footer>
+        <p><strong>A1 PIZZA</strong></p>
+        <p>Shop No. 25-A, Main Market, Distt. Jalandhar (Near PNB Bank)</p>
+        <div class="contact-info">
+            📞 70014-75108 | FREE HOME DELIVERY
+        </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
